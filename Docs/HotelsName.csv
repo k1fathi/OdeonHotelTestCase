@@ -1,18 +1,3 @@
-dotnet ef database update --startup-project ../WebApp
-
-
-Hotel Room Types
-Single: A room assigned to one person. ...
-Double: A room assigned to two people. ...
-Triple: A room assigned to three people. ...
-Quad: A room assigned to four people. ...
-Queen: A room with a queen-sized bed. ...
-King: A room with a king-sized bed. ...
-Twin: A room with two beds.
-
-//Hotels names from below refrence
-https://czechtheworld.com/best-catchy-creative-hotel-names-ideas/
-
 Crowne Plaza
 Emerald Bay Inn
 Hotel Bliss
@@ -88,6 +73,3 @@ Treebones Resort
 Waypoint
 The Eternity Resort
 Sandy Bloom
-
-
-Source: https://czechtheworld.com/best-catchy-creative-hotel-names-ideas/#ixzz7Q4pZxvdy

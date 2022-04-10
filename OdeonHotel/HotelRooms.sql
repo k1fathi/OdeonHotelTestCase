@@ -1,0 +1,8 @@
+﻿--Single
+INSERT INTO [dbo].[HotelRooms] SELECT NEWID(),ROUND(RAND(CHECKSUM(NEWID())) * (1000), 2),(50 + CONVERT(INT, (100-10+1)*RAND())),(10 + CONVERT(INT, (70-10+1)*RAND())),[Id],'63C31B25-2071-40AF-92CD-9C4B601AB13E',GETDATE(), NULL FROM [dbo].[Hotels];
+
+UPDATE [dbo].[HotelRooms] SET [SoldAllotment]= FLOOR(RAND(CHECKSUM(NEWID())) * (20))+20
+
+UPDATE [dbo].[HotelRooms] SET [MaxAllotment]= FLOOR(RAND(CHECKSUM(NEWID())) * (20))+50
+
+--
