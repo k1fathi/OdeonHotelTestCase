@@ -6,9 +6,14 @@ namespace WebApp
     public class OdeonHotelContext: DbContext
 
     {
+        private string _connectionString;
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Data Source=.\\SQLEXPRESS;Initial Catalog=OdeonHotel;Integrated Security=True; Min Pool Size=2; Max Pool Size=100;");
+            var builder = new ConfigurationBuilder();
+            builder.AddJsonFile("appsettings.json", optional: false);
+            var configuration = builder.Build();
+            _connectionString = configuration.GetConnectionString("SQLConnection").ToString();
+            optionsBuilder.UseSqlServer(_connectionString);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
