@@ -22,6 +22,11 @@
             •	RoomTypeName: Oda tipi adı.
             •	Price: Fiyat bilgisi (TL)
         */
+        public Guid HotelId { get; set; } 
+        public string HotelName { get; set; }
+        public Guid RoomTypeId { get; set; }
+        public string RoomTypeName { get; set; }
+        public decimal Price { get; set; }
     }
 
     public class AdvancedRoomSearchsResponseModel

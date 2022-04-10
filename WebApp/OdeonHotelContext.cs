@@ -7,6 +7,7 @@ namespace WebApp
 
     {
         private string _connectionString;
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             var builder = new ConfigurationBuilder();

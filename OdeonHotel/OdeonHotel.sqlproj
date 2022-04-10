@@ -58,6 +58,10 @@
     <Folder Include="Properties" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="RoomTypes.sql" />
+    <None Include="RoomTypesSeeder.sql" />
+    <None Include="HotelsSeeder.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="HotelRooms.sql" />
   </ItemGroup>
 </Project>
