@@ -14,7 +14,7 @@ namespace WebApp.Controllers
             _logger = logger;
         }
 
-        [HttpPost(Name = "CreateReservation")]
+        [HttpPost]
         public IActionResult CreateReservation([FromBody] CreateReservationRequestModel model)
         {
             var result = new CreateReservationResponseModel();
@@ -22,7 +22,7 @@ namespace WebApp.Controllers
             return Ok(result);
         }
 
-        [HttpDelete(Name = "CancelReservation")]
+        [HttpDelete]
         //•	ReservationId: Rezervasyon numarasý
         public IActionResult CancelReservation(int reservationId)
         {
