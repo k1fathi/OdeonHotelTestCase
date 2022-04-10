@@ -4,7 +4,7 @@ using WebApp.ViewModels;
 namespace WebApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class ReservationController : ControllerBase
     {
         private readonly ILogger<ReservationController> _logger;
@@ -14,7 +14,7 @@ namespace WebApp.Controllers
             _logger = logger;
         }
 
-        [HttpPost]
+        [HttpPost(Name = "CreateReservation")]
         public IActionResult CreateReservation([FromBody] CreateReservationRequestModel model)
         {
             var result = new CreateReservationResponseModel();
@@ -22,7 +22,7 @@ namespace WebApp.Controllers
             return Ok(result);
         }
 
-        [HttpDelete("{reservationId:int}")]
+        [HttpDelete(Name = "CancelReservation")]
         //•	ReservationId: Rezervasyon numarasý
         public IActionResult CancelReservation(int reservationId)
         {

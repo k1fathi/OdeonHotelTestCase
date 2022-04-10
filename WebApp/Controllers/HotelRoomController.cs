@@ -4,7 +4,7 @@ using WebApp.ViewModels;
 namespace WebApp.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[controller]/[action]")]
     public class HotelRoomController : ControllerBase
     {
         private readonly ILogger<HotelRoomController> _logger;
