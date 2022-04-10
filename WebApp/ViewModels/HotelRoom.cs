@@ -14,7 +14,7 @@
     #endregion
 
     #region Request ModelsResponse Models
-    public class GetCheapestRoomPricesResult
+    public class GetCheapestRoomPricesResponseModel
     {
         /*  •	HotelId: İlgili otelin Id’si.
             •	HotelName: Otel adı.
@@ -24,7 +24,7 @@
         */
     }
 
-    public class AdvancedRoomSearchsResult
+    public class AdvancedRoomSearchsResponseModel
     {
         /*  •	HotelId: İlgili otelin Id’si.
             •	HotelName: Otel adı.

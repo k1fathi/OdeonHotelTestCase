@@ -17,27 +17,15 @@ namespace WebApp.Controllers
         [HttpGet]
         public IActionResult GetCheapestRoomPrices()
         {
-            var result = new GetCheapestRoomPricesResult();
-            /*
-             * HotelId: Ýlgili otelin Id’si.
-             * HotelName: Otel adý.
-             * RoomTypeId: Oda tipinin Id’si.
-             * RoomTypeName: Oda tipi adý.
-             * Price: Fiyat bilgisi(TL). */
-
+            var result = new GetCheapestRoomPricesResponseModel();
+            
             return Ok(result);
         }
 
         [HttpGet]
         public IActionResult AdvancedRoomSearch([FromQuery] AdvancedRoomSearchRequestModel model)
         {
-            var result = new GetCheapestRoomPricesResult();
-            /*
-             * HotelId: Ýlgili otelin Id’si.
-             * HotelName: Otel adý.
-             * RoomTypeId: Oda tipinin Id’si.
-             * RoomTypeName: Oda tipi adý.
-             * Price: Fiyat bilgisi(TL). */
+            var result = new AdvancedRoomSearchsResponseModel();
 
             return Ok(result);
         }
@@ -46,12 +34,6 @@ namespace WebApp.Controllers
         public IActionResult RoomAvailabilityCheck([FromQuery] RoomAvailabilityCheckRequestModel model)
         {
             var result = false;
-            /*
-             * HotelId: Ýlgili otelin Id’si.
-             * HotelName: Otel adý.
-             * RoomTypeId: Oda tipinin Id’si.
-             * RoomTypeName: Oda tipi adý.
-             * Price: Fiyat bilgisi(TL). */
 
             return Ok(result);
         }
