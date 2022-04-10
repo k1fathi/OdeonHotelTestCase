@@ -7,10 +7,9 @@ namespace WebApp.Models
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public int RoomCount { get; set; }
-
         public Guid HotelRoomId { get; set; }
         [ForeignKey("HotelRoomId")]
-        public virtual HotelRoom HotelRoom { get; set; }
+        public virtual HotelRoom HotelRoom{ get; set; }
 
     }
 }
