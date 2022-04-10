@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\OdeonHotelTestCase\\WebApp\\WebApp.csproj": {}
+    "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\WebApp.csproj": {}
   },
   "projects": {
-    "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\OdeonHotelTestCase\\WebApp\\WebApp.csproj": {
+    "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\WebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\OdeonHotelTestCase\\WebApp\\WebApp.csproj",
+        "projectUniqueName": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\WebApp.csproj",
         "projectName": "WebApp",
-        "projectPath": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\OdeonHotelTestCase\\WebApp\\WebApp.csproj",
+        "projectPath": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\WebApp.csproj",
         "packagesPath": "C:\\Users\\Jawad Fathi\\.nuget\\packages\\",
-        "outputPath": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\OdeonHotelTestCase\\WebApp\\obj\\",
+        "outputPath": "C:\\k1\\Private_Sarente_PC\\17102021\\OdeonHotelTestCase\\WebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Jawad Fathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,9 +40,33 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "EntityFramework": {
+              "target": "Package",
+              "version": "[6.4.4, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.3, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.2.3, )"
+              "version": "[6.3.0, )"
             }
           },
           "imports": [
