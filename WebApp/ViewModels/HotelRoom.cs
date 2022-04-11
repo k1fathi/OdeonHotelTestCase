@@ -1,15 +1,22 @@
-﻿namespace WebApp.ViewModels
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApp.ViewModels
 {
     #region Request Models
-    public class AdvancedRoomSearchRequestModel { }
+    public class AdvancedRoomSearchRequestModel {
+        public List<Guid> HotelIds { get; set; }
+        public List<Guid> RoomTypeIds { get; set; }
+    }
 
     public class RoomAvailabilityCheckRequestModel {
 
-        /*  •	HotelIds: Bu parametrede istenilen oteller gönderilecektir. Birden fazla otel gönderilebilmelidir. Zorunlu alan değildir.
-            •	RoomTypeIds: Bu parametrede istenilen oda tipleri gönderilecektir. Birden fazla oda tipi gönderilebilmelidir. Zorunlu alandır.
-            •	RequestedRoomCount: İstenilen oda sayısı
-
-        */
+        /* •HotelIds: Bu parametrede istenilen oteller gönderilecektir. Birden fazla otel gönderilebilmelidir. Zorunlu alan değildir.
+          •	RoomTypeIds: Bu parametrede istenilen oda tipleri gönderilecektir. Birden fazla oda tipi gönderilebilmelidir. Zorunlu alandır.
+          •	RequestedRoomCount: İstenilen oda sayısı
+      */
+        public Guid HotelId { get; set; }
+        public Guid RoomTypeId { get; set; }
+        public int RequestedRoomCount { get; set; }
     }
     #endregion
 
@@ -29,7 +36,7 @@
         public decimal Price { get; set; }
     }
 
-    public class AdvancedRoomSearchsResponseModel
+    public class AdvancedRoomSearchsResponseModel: GetCheapestRoomPricesResponseModel
     {
         /*  •	HotelId: İlgili otelin Id’si.
             •	HotelName: Otel adı.
@@ -37,6 +44,7 @@
             •	RoomTypeName: Oda tipi adı.
             •	Price: Fiyat bilgisi (TL)
         */
+
     }
 
 
