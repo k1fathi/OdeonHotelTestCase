@@ -14,8 +14,8 @@ namespace WebApp.ViewModels
           •	RoomTypeIds: Bu parametrede istenilen oda tipleri gönderilecektir. Birden fazla oda tipi gönderilebilmelidir. Zorunlu alandır.
           •	RequestedRoomCount: İstenilen oda sayısı
       */
-        public Guid HotelId { get; set; }
-        public Guid RoomTypeId { get; set; }
+        public List<Guid> HotelIds { get; set; }
+        public List<Guid> RoomTypeIds { get; set; }
         public int RequestedRoomCount { get; set; }
     }
     #endregion
@@ -45,6 +45,17 @@ namespace WebApp.ViewModels
             •	Price: Fiyat bilgisi (TL)
         */
 
+    }
+
+    public class RoomAvailabilityCheckResponseModel 
+    {
+        /*  •	Available: Uygunluk var ise true, yok ise false olarak dönecektir.  */
+        public Guid HotelId { get; set; }
+        public string HotelName { get; set; }
+        public Guid RoomTypeId { get; set; }
+        public string RoomTypeName { get; set; }
+
+        public bool IsAvailable { get; set; }
     }
 
 

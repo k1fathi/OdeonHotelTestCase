@@ -1,3 +1,7 @@
+dotnet ef --startup-project ../WebApp migrations add FirstInitiate
+dotnet ef --startup-project ../WebApp migrations add CurrencyUnit_HotelRoom
+
+dotnet ef --startup-project ../WebApp migrations Remove CurrencyUnit_HotelRoom
 dotnet ef database update --startup-project ../WebApp
 
 

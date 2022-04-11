@@ -65,7 +65,7 @@ namespace WebApp.Controllers
                 {
 
                     result.List = _context.HotelRooms
-                        .Where(o=> model.HotelIds.Contains(o.HotelId) && model.RoomTypeIds.Contains(o.RoomTypeId))
+                        .Where(o => model.HotelIds.Contains(o.HotelId) && model.RoomTypeIds.Contains(o.RoomTypeId))
                         .Select(o => new AdvancedRoomSearchsResponseModel
                         {
                             HotelId = o.Hotel.Id,
@@ -96,12 +96,43 @@ namespace WebApp.Controllers
             }
         }
 
-        [HttpGet]
-        public IActionResult RoomAvailabilityCheck([FromQuery] RoomAvailabilityCheckRequestModel model)
+        [HttpPost]
+        public async Task<IActionResult> RoomAvailabilityCheck([FromBody] RoomAvailabilityCheckRequestModel model)
         {
-            var result = false;
+            var result = new ListResult<RoomAvailabilityCheckResponseModel>();
+            try
+            {
+                using (var _context = new OdeonHotelContext())
+                {
 
-            return Ok(result);
+                    result.List = _context.HotelRooms
+                        .Where(o => model.HotelIds.Contains(o.HotelId) && model.RoomTypeIds.Contains(o.RoomTypeId))
+                        .Select(o => new RoomAvailabilityCheckResponseModel
+                        {
+                            HotelId = o.Hotel.Id,
+                            HotelName = o.Hotel.HotelName,
+                            RoomTypeId = o.RoomType.Id,
+                            RoomTypeName = o.RoomType.RoomTypeName,
+                            IsAvailable = (o.MaxAllotment - o.SoldAllotment) > model.RequestedRoomCount ? true : false,
+                        })
+                        .ToList();
+
+                    //_logger.LogInformation(@"Count of valid datas {0}.", result.List.Count);
+                }
+                result.IsCompleted = true;
+                result.ResultMessage = ResultMessage.Success;
+                return Ok(result);
+
+            }
+            catch (Exception e)
+            {
+
+                return new NotFoundObjectResult(new BaseResult
+                {
+                    ResultMessage = e.Message,
+                    IsCompleted = false
+                });
+            }
         }
     }
 }
