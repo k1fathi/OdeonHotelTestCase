@@ -33,9 +33,13 @@ namespace WebApp.Controllers
                     o.RoomType.Id == model.RoomTypeId
                     ).SingleOrDefault();
                     if (hotelDbModel == null) throw new Exception("Hotel not found");
-
+                    
+                    //Check empty room
                     var EmptyRoomInHotel = hotelDbModel.MaxAllotment - hotelDbModel.SoldAllotment;
-                    if (EmptyRoomInHotel < model.RequestedRoomCount) throw new Exception("Hotel doesn't have enough empty room");
+                    if (EmptyRoomInHotel < model.RequestedRoomCount) throw new Exception($"Hotel doesn't have enough empty room. request room couldnt be more than {EmptyRoomInHotel}");
+
+                    //Update SoldAllotment of hotel
+                    hotelDbModel.SoldAllotment = hotelDbModel.SoldAllotment + model.RequestedRoomCount;
 
                     var newReservationModel = new Reservation
                     {
@@ -44,6 +48,7 @@ namespace WebApp.Controllers
                         RoomCount = model.RequestedRoomCount,
                         HotelRoomId = hotelDbModel.Id
                     };
+
                     _context.Add<Reservation>(newReservationModel);
                     await _context.SaveChangesAsync();
 
@@ -59,13 +64,13 @@ namespace WebApp.Controllers
             {
                 return new NotFoundObjectResult(new CreateReservationResponseModel
                 {
-                    Message = e.InnerException.Message,
-                }); ;
+                    Message = e.Message,
+                });
             }
         }
         [HttpDelete]
         //•	ReservationId: Rezervasyon numarasý
-        public IActionResult CancelReservation(int reservationId)
+        public async Task<IActionResult> CancelReservation(int reservationId)
         {
             var result = new CancelReservationResponseModel();
 
