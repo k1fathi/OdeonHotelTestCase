@@ -41,3 +41,50 @@ POST
   ],
  "RequestedRoomCount":10
 }
+
+///////////////////////////////////////////////////
+
+//Hotel not found request
+{
+  "hotelId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "roomTypeId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "requestedRoomCount": 0,
+  "bookingDateStart": "2022-04-12T19:58:06.275Z",
+  "bookingDateEnd": "2022-04-12T19:58:06.275Z"
+}
+//Hotel not found response
+{
+  "reservationId": null,
+  "success": false,
+  "message": "Hotel not found"
+}
+.................................
+//Hotel doesn't have enough empty room
+
+{
+  "hotelId": "BBE3AF07-945B-47AD-A854-7E7B73D719FB",
+  "roomTypeId": "C7F5FEDD-C59E-4B99-9562-EC7446FCBCB7",
+  "requestedRoomCount": 20,
+  "bookingDateStart": "2022-04-12T19:58:06.275Z",
+  "bookingDateEnd": "2022-04-12T19:58:06.275Z"
+}
+
+.................................
+curl -X 'POST' \
+  'https://localhost:44327/Reservation/CreateReservation' \
+  -H 'accept: */*' \
+  -H 'Content-Type: application/json' \
+  -d '{
+  "hotelId": "BBE3AF07-945B-47AD-A854-7E7B73D719FB",
+  "roomTypeId": "C7F5FEDD-C59E-4B99-9562-EC7446FCBCB7",
+  "requestedRoomCount": 10,
+  "bookingDateStart": "2022-04-12",
+  "bookingDateEnd": "2022-05-12"
+}'
+
+//Response
+{
+  "reservationId": "366c539f-99fd-4c9b-b9e9-70a3277d5a0a",
+  "success": true,
+  "message": "Başarılı"
+}

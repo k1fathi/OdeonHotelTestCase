@@ -44,7 +44,6 @@ namespace WebApp.ViewModels
             •	RoomTypeName: Oda tipi adı.
             •	Price: Fiyat bilgisi (TL)
         */
-
     }
 
     public class RoomAvailabilityCheckResponseModel 
@@ -54,10 +53,7 @@ namespace WebApp.ViewModels
         public string HotelName { get; set; }
         public Guid RoomTypeId { get; set; }
         public string RoomTypeName { get; set; }
-
         public bool IsAvailable { get; set; }
     }
-
-
     #endregion
 }
