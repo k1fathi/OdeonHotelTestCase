@@ -40,6 +40,8 @@ namespace WebApp.ViewModels
         /*  •	Success: İşlemin başarılı olması durumunda true, başarısız olması durumunda false.
             •	Message: İşlemin sonucuna göre mesaj döndürmelidir.
         */
+        public bool Success { get; set; } = false;
+        public string Message { get; set; } = string.Empty;
     }
 
     #endregion

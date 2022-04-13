@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Data.Entity;
 using WebApp.Common;
 using WebApp.Models;
 using WebApp.ViewModels;
@@ -33,7 +34,7 @@ namespace WebApp.Controllers
                     o.RoomType.Id == model.RoomTypeId
                     ).SingleOrDefault();
                     if (hotelDbModel == null) throw new Exception("Hotel not found");
-                    
+
                     //Check empty room
                     var EmptyRoomInHotel = hotelDbModel.MaxAllotment - hotelDbModel.SoldAllotment;
                     if (EmptyRoomInHotel < model.RequestedRoomCount) throw new Exception($"Hotel doesn't have enough empty room. request room couldnt be more than {EmptyRoomInHotel}");
@@ -70,11 +71,45 @@ namespace WebApp.Controllers
         }
         [HttpDelete]
         //•	ReservationId: Rezervasyon numarasý
-        public async Task<IActionResult> CancelReservation(int reservationId)
+        public async Task<IActionResult> CancelReservation(Guid reservationId)
         {
             var result = new CancelReservationResponseModel();
+            if (!ModelState.IsValid)
+            {
+                return UnprocessableEntity(ModelState);
+            }
+            try
+            {
+                using (var _context = new OdeonHotelContext())
+                {
+                    var ResDbModel = _context.Reservations
+                        .Where(o =>o.Id == reservationId)
+                        .Include(c => c.HotelRoom)
+                        .SingleOrDefault();
+                    if (ResDbModel == null) throw new Exception("Reservstion not found");
 
-            return Ok(result);
+                    //Decrease hotel room SoldAllotment
+                    var HotelRoomDbModel = _context.HotelRooms.SingleOrDefault(o => o.Id == ResDbModel.HotelRoomId);
+                    if (ResDbModel == null) throw new Exception("Reservstion not found");
+
+                    HotelRoomDbModel.UpdateDate = DateTime.Now;
+                    HotelRoomDbModel.SoldAllotment -= ResDbModel.RoomCount;
+
+                    _context.Remove(ResDbModel);
+                    await _context.SaveChangesAsync();
+
+                    result.Success = true;
+                    result.Message = ResultMessage.Success;
+                }
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                return new NotFoundObjectResult(new CreateReservationResponseModel
+                {
+                    Message = e.Message,
+                });
+            }
         }
     }
 }
