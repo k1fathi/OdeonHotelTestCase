@@ -1,0 +1,13 @@
+13.04.2022 13:00:04	This log contains information about the import operation of the script 'SchemaOnly_DBScript_13042022_1255.sql' into project 'DbScript' on computer 'DESKTOP-M5CB27G' by user'Jawad Fathi.
+13.04.2022 13:00:04	Started importing file: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\SchemaOnly_DBScript_13042022_1255.sql 
+13.04.2022 13:00:04	File name C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\SchemaOnly_DBScript_13042022_1255.sql (size: 15774)
+13.04.2022 13:00:04	Parsing import script
+13.04.2022 13:00:05	Total number of batches in script: 61
+13.04.2022 13:00:05	Total number of statements in script: 11
+13.04.2022 13:00:05	The script was successfully imported into the project.
+13.04.2022 13:00:05	Analyzing schema objects...
+13.04.2022 13:00:05	Scanning project for duplicate elements
+13.04.2022 13:00:05	Finished duplicate element processing
+13.04.2022 13:00:06	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+13.04.2022 13:00:07	A summary of the import was saved to the following location: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\Import Script Logs\SchemaOnly_DBScript__20220413100004.log
+13.04.2022 13:00:07	Click Finish to continue...

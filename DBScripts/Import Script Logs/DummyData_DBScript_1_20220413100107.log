@@ -1,0 +1,24 @@
+13.04.2022 13:01:07	This log contains information about the import operation of the script 'DummyData_DBScript_13042022_1255.sql' into project 'DbScript' on computer 'DESKTOP-M5CB27G' by user'Jawad Fathi.
+13.04.2022 13:01:07	Started importing file: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\DummyData_DBScript_13042022_1255.sql 
+13.04.2022 13:01:07	File name C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\DummyData_DBScript_13042022_1255.sql (size: 424286)
+13.04.2022 13:01:07	Parsing import script
+13.04.2022 13:01:07	Total number of batches in script: 71
+13.04.2022 13:01:07	Total number of statements in script: 11
+13.04.2022 13:01:07	The script was successfully imported into the project.
+13.04.2022 13:01:07	Analyzing schema objects...
+13.04.2022 13:01:07	Scanning project for duplicate elements
+13.04.2022 13:01:07	Element '__EFMigrationsHistory' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\__EFMigrationsHistory.sql'.
+13.04.2022 13:01:07	Element 'HotelRooms' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\HotelRooms.sql'.
+13.04.2022 13:01:07	Element 'Hotels' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\Hotels.sql'.
+13.04.2022 13:01:07	Element 'Reservations' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\Reservations.sql'.
+13.04.2022 13:01:07	Element 'RoomTypes' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\RoomTypes.sql'.
+13.04.2022 13:01:07	Element 'FK_HotelRooms_Hotels_HotelId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\HotelRooms.sql'.
+13.04.2022 13:01:07	Element 'FK_HotelRooms_RoomTypes_RoomTypeId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\HotelRooms.sql'.
+13.04.2022 13:01:07	Element 'FK_Reservations_HotelRooms_HotelRoomId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\Reservations.sql'.
+13.04.2022 13:01:07	Element 'IX_HotelRooms_HotelId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\HotelRooms.sql'.
+13.04.2022 13:01:07	Element 'IX_HotelRooms_RoomTypeId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\HotelRooms.sql'.
+13.04.2022 13:01:07	Element 'IX_Reservations_HotelRoomId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\dbo\Tables\Reservations.sql'.
+13.04.2022 13:01:07	Finished duplicate element processing
+13.04.2022 13:01:08	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+13.04.2022 13:01:08	A summary of the import was saved to the following location: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\DBScripts\Import Script Logs\DummyData_DBScript_1_20220413100107.log
+13.04.2022 13:01:08	Click Finish to continue...
