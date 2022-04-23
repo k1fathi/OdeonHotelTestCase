@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 using System.Data.Entity;
 using WebApp.Common;
 using WebApp.Models;
@@ -8,6 +9,7 @@ namespace WebApp.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
+    [SwaggerTag("Create, Cancel Reservation")]
     public class ReservationController : ControllerBase
     {
         private readonly ILogger<ReservationController> _logger;
@@ -16,13 +18,19 @@ namespace WebApp.Controllers
         {
             _logger = logger;
         }
-
+        /// <summary>
+        /// Create Reservation.
+        /// </summary>
+        /// <param> HotelId, RoomTypeId, RequestedRoomCount, BookingDateStart, BookingDateEnd</param>
+        /// <returns> Create Reservation</returns>
         [HttpPost]
-        public async Task<IActionResult> CreateReservation([FromBody] CreateReservationRequestModel model)
+        [SwaggerResponse(400, "BadRequest Result", typeof(BaseResult))]
+        [SwaggerResponse(201, "Created Result", typeof(Reservation))]
+        public async Task<IActionResult> CreateReservation([FromBody, SwaggerRequestBody("The Reservation payload", Required = true)] CreateReservationRequestModel model)
         {
             if (!ModelState.IsValid)
             {
-                return UnprocessableEntity(ModelState);
+                throw new Exception(ModelState.ToString());
             }
             try
             {
@@ -69,21 +77,27 @@ namespace WebApp.Controllers
                 });
             }
         }
+        /// <summary>
+        /// Cancel Reservation.
+        /// </summary>
+        /// <param name="reservationId"></param>
+        /// <returns></returns>
         [HttpDelete]
-        //•	ReservationId: Rezervasyon numarasý
+        [SwaggerResponse(400, "BadRequest Result", typeof(BaseResult))]
+        [SwaggerResponse(200, "Successfull Result", typeof(CancelReservationResponseModel))]
         public async Task<IActionResult> CancelReservation(Guid reservationId)
         {
             var result = new CancelReservationResponseModel();
             if (!ModelState.IsValid)
             {
-                return UnprocessableEntity(ModelState);
+                throw new Exception(ModelState.ToString());
             }
             try
             {
                 using (var _context = new OdeonHotelContext())
                 {
                     var ResDbModel = _context.Reservations
-                        .Where(o =>o.Id == reservationId)
+                        .Where(o => o.Id == reservationId)
                         .Include(c => c.HotelRoom)
                         .SingleOrDefault();
                     if (ResDbModel == null) throw new Exception("Reservstion not found");

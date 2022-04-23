@@ -1,9 +1,12 @@
-﻿namespace WebApp.ViewModels
+﻿using System.ComponentModel;
+
+namespace WebApp.ViewModels
 {
     public class BaseResult
     {
         public string ResultMessage { get; set; }
-        public bool IsCompleted { get; set; } = false;
+        [DefaultValue(false)]
+        public bool IsCompleted { get; set; }
     }
 
     public class SingleResult<Entity> : BaseResult

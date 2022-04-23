@@ -4,7 +4,9 @@ namespace WebApp.ViewModels
 {
     #region Request Models
     public class AdvancedRoomSearchRequestModel {
+        [Required]
         public List<Guid> HotelIds { get; set; }
+        [Required]
         public List<Guid> RoomTypeIds { get; set; }
     }
 
@@ -13,8 +15,10 @@ namespace WebApp.ViewModels
         /* •HotelIds: Bu parametrede istenilen oteller gönderilecektir. Birden fazla otel gönderilebilmelidir. Zorunlu alan değildir.
           •	RoomTypeIds: Bu parametrede istenilen oda tipleri gönderilecektir. Birden fazla oda tipi gönderilebilmelidir. Zorunlu alandır.
           •	RequestedRoomCount: İstenilen oda sayısı
-      */
+        */
+        [Required]
         public List<Guid> HotelIds { get; set; }
+        [Required]  
         public List<Guid> RoomTypeIds { get; set; }
         public int RequestedRoomCount { get; set; }
     }

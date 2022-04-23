@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Mvc;
 using WebApp.ViewModels;
 using WebApp.Common;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace WebApp.Controllers
 {
     [ApiController]
     [Route("[controller]/[action]")]
+    [Produces("application/json")]
+    [SwaggerTag("Get CheapestRoomPrices, AdvancedRoomSearch, RoomAvailabilityCheck")]
     public class HotelRoomController : ControllerBase
     {
         private readonly ILogger<HotelRoomController> _logger;
@@ -14,7 +17,15 @@ namespace WebApp.Controllers
             _logger = logger;
         }
 
+
+        /// <summary>
+        /// Get Cheapest Room Prices
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
+        [SwaggerResponse(200, "Get Cheapest Room Prices", typeof(ListResult<GetCheapestRoomPricesResponseModel>))]
+        [SwaggerResponse(204, "Get Cheapest Room Prices", typeof(BaseResult))]
+        //[ProducesDefaultResponseType(typeof(IEnumerable<GetCheapestRoomPricesResponseModel>))]
         public async Task<IActionResult> GetCheapestRoomPrices()
         {
             var result = new ListResult<GetCheapestRoomPricesResponseModel>();
@@ -55,9 +66,21 @@ namespace WebApp.Controllers
 
         }
 
+        /// <summary>
+        /// Advanced RoomS earch
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
+        [SwaggerResponse(200, "Successfull Result", typeof(ListResult<AdvancedRoomSearchsResponseModel>))]
+        [SwaggerResponse(204, "Not Content Result", typeof(BaseResult))]
+        [SwaggerResponse(400, "BadRequest Result", typeof(BaseResult))]
+        //[ProducesDefaultResponseType(typeof(IEnumerable<AdvancedRoomSearchsResponseModel>))]
         public async Task<IActionResult> AdvancedRoomSearch([FromBody] AdvancedRoomSearchRequestModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                throw new Exception(ModelState.ToString());
+            }
             var result = new ListResult<AdvancedRoomSearchsResponseModel>();
             try
             {
@@ -87,7 +110,6 @@ namespace WebApp.Controllers
             }
             catch (Exception e)
             {
-
                 return new NotFoundObjectResult(new BaseResult
                 {
                     ResultMessage = e.Message,
@@ -96,9 +118,21 @@ namespace WebApp.Controllers
             }
         }
 
+        /// <summary>
+        /// Room Availability Check
+        /// </summary>
+        /// <returns></returns>
         [HttpPost]
+        [SwaggerResponse(200, "Successfull Result", typeof(ListResult<RoomAvailabilityCheckResponseModel>))]
+        [SwaggerResponse(204, "Not Content Result", typeof(BaseResult))]
+        [SwaggerResponse(400, "BadRequest Result", typeof(BaseResult))]
+        //[ProducesDefaultResponseType(typeof(IEnumerable<RoomAvailabilityCheckResponseModel>))]
         public async Task<IActionResult> RoomAvailabilityCheck([FromBody] RoomAvailabilityCheckRequestModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                throw new Exception(ModelState.ToString());
+            }
             var result = new ListResult<RoomAvailabilityCheckResponseModel>();
             try
             {
@@ -126,7 +160,6 @@ namespace WebApp.Controllers
             }
             catch (Exception e)
             {
-
                 return new NotFoundObjectResult(new BaseResult
                 {
                     ResultMessage = e.Message,
