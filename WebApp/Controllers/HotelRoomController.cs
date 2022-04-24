@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using WebApp.ViewModels;
 using WebApp.Common;
 using Swashbuckle.AspNetCore.Annotations;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace WebApp.Controllers
 {
@@ -12,9 +13,11 @@ namespace WebApp.Controllers
     public class HotelRoomController : ControllerBase
     {
         private readonly ILogger<HotelRoomController> _logger;
-        public HotelRoomController(ILogger<HotelRoomController> logger)
+        private readonly IMemoryCache _cheapestRoomPricesCache;
+        public HotelRoomController(ILogger<HotelRoomController> logger, IMemoryCache cheapestRoomPricesCache)
         {
             _logger = logger;
+            _cheapestRoomPricesCache = cheapestRoomPricesCache;
         }
 
 
@@ -28,26 +31,38 @@ namespace WebApp.Controllers
         //[ProducesDefaultResponseType(typeof(IEnumerable<GetCheapestRoomPricesResponseModel>))]
         public async Task<IActionResult> GetCheapestRoomPrices()
         {
-            var result = new ListResult<GetCheapestRoomPricesResponseModel>();
             try
             {
-                using (var _context = new OdeonHotelContext())
+                //Check cache before get data from DB
+                _cheapestRoomPricesCache.TryGetValue($"GetCheapestRoomPrices{DateTime.Today}",out ListResult<GetCheapestRoomPricesResponseModel> result);
+                //Check if cache is empty then get new values feom DB
+                if (result == null)
                 {
+                    result = new ListResult<GetCheapestRoomPricesResponseModel>();
 
-                    result.List = _context.HotelRooms
-                        .Select(o => new GetCheapestRoomPricesResponseModel
-                        {
-                            HotelId = o.Hotel.Id,
-                            HotelName = o.Hotel.HotelName,
-                            RoomTypeId = o.RoomType.Id,
-                            RoomTypeName = o.RoomType.RoomTypeName,
-                            Price = o.Price
-                        })
-                        .OrderBy(o => o.Price)
-                        .ThenBy(n => n.RoomTypeName)
-                        .ToList();
+                    using (var _context = new OdeonHotelContext())
+                    {
 
-                    //_logger.LogInformation(@"Count of valid datas {0}.", result.List.Count);
+                        result.List = _context.HotelRooms
+                            .Select(o => new GetCheapestRoomPricesResponseModel
+                            {
+                                HotelId = o.Hotel.Id,
+                                HotelName = o.Hotel.HotelName,
+                                RoomTypeId = o.RoomType.Id,
+                                RoomTypeName = o.RoomType.RoomTypeName,
+                                Price = o.Price
+                            })
+                            .OrderBy(o => o.Price)
+                            .ThenBy(n => n.RoomTypeName)
+                            .ToList();
+
+                        //_logger.LogInformation(@"Count of valid datas {0}.", result.List.Count);
+                        // Cahce exipre date depend on data type. hotel room fees don't chnage on day usually
+                       
+                    }
+                    var cacheEntryOption = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromDays(1));
+                   _cheapestRoomPricesCache.Set($"GetCheapestRoomPrices{DateTime.Today}", result, cacheEntryOption);
+
                 }
                 result.IsCompleted = true;
                 result.ResultMessage = ResultMessage.Success;
