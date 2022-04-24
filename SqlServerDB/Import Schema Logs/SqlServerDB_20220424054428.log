@@ -1,0 +1,87 @@
+24.04.2022 20:44:28	This log contains information about the import schema operation into project 'SqlServerDB' on computer 'DESKTOP-M5CB27G' by user 'Jawad Fathi'.
+24.04.2022 20:44:28	Import of database schema has started.
+24.04.2022 20:44:37	Gathering database credentials
+24.04.2022 20:44:37	Gathering database options
+24.04.2022 20:44:37	Gathering generic database scoped configuration option
+24.04.2022 20:44:37	Gathering users
+24.04.2022 20:44:37	Gathering roles
+24.04.2022 20:44:37	Gathering application roles
+24.04.2022 20:44:37	Gathering role memberships
+24.04.2022 20:44:37	Gathering filegroups
+24.04.2022 20:44:37	Gathering full-text catalogs
+24.04.2022 20:44:37	Gathering assemblies
+24.04.2022 20:44:37	Gathering certificates
+24.04.2022 20:44:37	Gathering asymmetric keys
+24.04.2022 20:44:37	Gathering symmetric keys
+24.04.2022 20:44:37	Gathering encrypted symmetric keys
+24.04.2022 20:44:37	Gathering schemas
+24.04.2022 20:44:37	Gathering XML schema collections
+24.04.2022 20:44:37	Gathering user-defined data types
+24.04.2022 20:44:37	Gathering user-defined types
+24.04.2022 20:44:37	Gathering table types
+24.04.2022 20:44:37	Gathering unique keys for table types
+24.04.2022 20:44:37	Gathering primary keys for table types
+24.04.2022 20:44:37	Gathering indexes for table types
+24.04.2022 20:44:45	Gathering check constraints for table types
+24.04.2022 20:44:45	Gathering default constraints for table types
+24.04.2022 20:44:45	Gathering partition functions
+24.04.2022 20:44:45	Gathering partition schemes
+24.04.2022 20:44:45	Gathering functions
+24.04.2022 20:44:45	Gathering encrypted functions
+24.04.2022 20:44:45	Gathering aggregates
+24.04.2022 20:44:45	Gathering procedures
+24.04.2022 20:44:45	Gathering encrypted procedures
+24.04.2022 20:44:45	Gathering tables
+24.04.2022 20:44:45	Gathering primary keys
+24.04.2022 20:44:45	Gathering unique constraints
+24.04.2022 20:44:45	Gathering foreign keys
+24.04.2022 20:44:45	Gathering default constraints
+24.04.2022 20:44:45	Gathering check constraints
+24.04.2022 20:44:45	Gathering views
+24.04.2022 20:44:45	Gathering encrypted views
+24.04.2022 20:44:45	Gathering indexes
+24.04.2022 20:44:45	Gathering statistics
+24.04.2022 20:44:45	Gathering full-text index stoplists
+24.04.2022 20:44:45	Gathering search property lists
+24.04.2022 20:44:45	Gathering search properties
+24.04.2022 20:44:45	Gathering full-text indexes
+24.04.2022 20:44:45	Gathering column store indexes
+24.04.2022 20:44:45	Gathering spatial indexes
+24.04.2022 20:44:45	Gathering XML indexes
+24.04.2022 20:44:45	Gathering Selective XML indexes
+24.04.2022 20:44:45	Gathering encrypted triggers
+24.04.2022 20:44:45	Gathering triggers
+24.04.2022 20:44:45	Gathering encrypted and clr ddl triggers
+24.04.2022 20:44:45	Gathering ddl triggers
+24.04.2022 20:44:45	Creating edge constraints
+24.04.2022 20:44:45	Gathering synonyms
+24.04.2022 20:44:45	Gathering defaults
+24.04.2022 20:44:45	Gathering data constraint uddt bindings
+24.04.2022 20:44:45	Gathering rules
+24.04.2022 20:44:45	Gathering data constraint uddt bindings
+24.04.2022 20:44:45	Gathering message types
+24.04.2022 20:44:45	Gathering queues
+24.04.2022 20:44:45	Gathering contracts
+24.04.2022 20:44:45	Gathering services
+24.04.2022 20:44:45	Gathering event notifications
+24.04.2022 20:44:45	Gathering remote service bindings
+24.04.2022 20:44:45	Gathering broker priorities
+24.04.2022 20:44:45	Gathering signatures
+24.04.2022 20:44:45	Gathering data compression options
+24.04.2022 20:44:45	Gathering sequence types
+24.04.2022 20:44:45	Gathering security policies
+24.04.2022 20:44:45	Gather column encryption keys
+24.04.2022 20:44:45	Gathering column master keys
+24.04.2022 20:44:45	Gathering external data sources
+24.04.2022 20:44:45	Gathering external file formats
+24.04.2022 20:44:45	Gathering external tables
+24.04.2022 20:44:45	Gathering extended properties
+24.04.2022 20:44:45	Gathering assemblies
+24.04.2022 20:44:45	Gathering credentials
+24.04.2022 20:44:45	Gathering logins
+24.04.2022 20:44:45	Gathering server audits
+24.04.2022 20:44:47	Scanning project for duplicate elements
+24.04.2022 20:44:47	Finished duplicate element processing
+24.04.2022 20:44:48	Finished importing database.
+24.04.2022 20:44:48	A summary of the import was saved to the following location: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\SqlServerDB\Import Schema Logs\SqlServerDB_20220424054428.log
+24.04.2022 20:44:48	Click Finish to continue...

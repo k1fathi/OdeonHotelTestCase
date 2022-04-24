@@ -1,0 +1,16 @@
+24.04.2022 20:46:15	This log contains information about the import operation of the script 'DummyData_DBScript_13042022_1255.sql' into project 'SqlServerDB' on computer 'DESKTOP-M5CB27G' by user'Jawad Fathi.
+24.04.2022 20:46:15	Started importing file: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\DummyData_DBScript_13042022_1255.sql 
+24.04.2022 20:46:16	File name C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\Docs\DummyData_DBScript_13042022_1255.sql (size: 424286)
+24.04.2022 20:46:16	Parsing import script
+24.04.2022 20:46:16	Total number of batches in script: 71
+24.04.2022 20:46:16	Total number of statements in script: 3
+24.04.2022 20:46:16	The script was successfully imported into the project.
+24.04.2022 20:46:16	Analyzing schema objects...
+24.04.2022 20:46:16	Scanning project for duplicate elements
+24.04.2022 20:46:16	Element 'FK_HotelRooms_Hotels_HotelId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\SqlServerDB\dbo\Tables\HotelRooms.sql'.
+24.04.2022 20:46:16	Element 'FK_HotelRooms_RoomTypes_RoomTypeId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\SqlServerDB\dbo\Tables\HotelRooms.sql'.
+24.04.2022 20:46:16	Element 'FK_Reservations_HotelRooms_HotelRoomId' was merged into the existing script: 'C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\SqlServerDB\dbo\Tables\Reservations.sql'.
+24.04.2022 20:46:16	Finished duplicate element processing
+24.04.2022 20:46:16	In the script that you provided to the import operation, one or more statements were not fully understood. These statements were moved to the ScriptsIgnoredOnImport.sql file. Review the file contents for additional information.
+24.04.2022 20:46:16	A summary of the import was saved to the following location: C:\k1\Private_Sarente_PC\17102021\OdeonHotelTestCase\SqlServerDB\Import Script Logs\DummyData_DBScript_1_20220424054615.log
+24.04.2022 20:46:16	Click Finish to continue...
